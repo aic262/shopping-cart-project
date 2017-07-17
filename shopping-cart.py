@@ -1,5 +1,11 @@
-from Ipython import embed
 import datetime
+from datetime import datetime
+import time
+import sys
+#print("Current date & time " + time.strftime("%c"))
+#print("Current date "  + time.strftime("%x"))
+#print("Current time " + time.strftime("%X"))
+
 
 products = [
     {"id":1, "name": "Chocolate Sandwich Cookies", "department": "snacks", "aisle": "cookies cakes", "price": 3.50},
@@ -24,15 +30,68 @@ products = [
     {"id":20, "name": "Pomegranate Cranberry & Aloe Vera Enrich Drink", "department": "beverages", "aisle": "juice nectars", "price": 4.25}
 ] # Products based on data from Instacart: https://www.instacart.com/datasets/grocery-shopping-2017
 
-product_id = []
 
-while condition:
-    product_id = input("Please input a product identifier, or 'DONE' if there are no more items:")
-    if product_id == "DONE"
+#
+#checkpoint 1
+#
+
+productids = []
+
+while True:
+    productid = input("Please input a valid product identifier, or 'DONE' if there are no more items: ")
+    if productid == "DONE":
         break
     else:
-        product_ids.append(int(product_id))
+        productids.append(int(productid))
 
-def lookup_product_by_id(product_id):
-    matching_products = (product for product in products:
-        pass)
+
+print("  ")
+print("Product IDs of current shopping list: ",productids)
+print("  ")
+print("---------------")
+print("AC's STORE")
+print("---------------")
+print("Web: www.aic262.com")
+print("Phone: 1.123.456.7890")
+print("Checkout Time: " + time.strftime("%x") + " " + time.strftime("%X"))
+
+print("---------------")
+print("  ")
+
+
+#
+#checkpoint 2
+#
+
+charges = []
+
+print("SHOPPING CART PRODUCT LIST - with product ID: ",productids)
+for item in products:
+    for purchase in productids:
+        if item["id"] == purchase:
+            charges.append(item["price"])
+            print (" + ",item["name"], '(${0:.2f})'.format(item["price"]))
+
+print("---------------")
+print("  ")
+
+
+#
+#checkpoint 3
+#
+
+salestax = 0.08875
+subtotal = sum(charges)
+taxcharge = (salestax * subtotal)
+total = (subtotal + taxcharge)
+
+print("Sub-total: "'${0:.2f}'.format(sum(charges)))
+print("Plus NYC Sales Tax (8.875%): ", '+ ${0:.2f}'.format(taxcharge))
+print("Grand Total: ", '${0:.2f}'.format(total))
+
+print("---------------")
+print("  ")
+
+print("Thank you for your business!")
+print("Don't forget to like us on Facebook!")
+print("See you again soon! :)")
